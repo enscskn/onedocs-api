@@ -39,4 +39,16 @@ exports.createTask = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+};
+
+// Belirli kullanıcıya atanan task'ları getir
+exports.getAssignedTasks = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { data, error } = await supabase.from('tasks').select('*').eq('assigned_to', userId);
+    if (error) throw error;
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 }; 

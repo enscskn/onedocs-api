@@ -48,6 +48,13 @@
         <div class="api-section">
           <div class="api-title">Tüm Task'ları Getir</div>
           <button class="btn btn-primary mb-2" onclick="getTasks()">GET /api/tasks</button>
+          <div class="api-section">
+            <div class="api-title">Kullanıcıya Göre Task'ları Getir</div>
+            <div class="input-group mb-2">
+              <input type="text" class="form-control" id="tasks-user-id" placeholder="Kullanıcı ID'si">
+              <button class="btn btn-outline-primary" type="button" onclick="getTasksByUser()">Getir</button>
+            </div>
+          </div>
           <div class="table-responsive">
             <table class="table table-striped align-middle" id="tasks-table" style="display:none;"></table>
           </div>
@@ -100,6 +107,13 @@
         <div class="api-section">
           <div class="api-title">Tüm Dökümanları Getir</div>
           <button class="btn btn-primary mb-2" onclick="getDocuments()">GET /api/documents</button>
+          <div class="api-section">
+            <div class="api-title">Kullanıcıya Göre Dökümanları Getir</div>
+            <div class="input-group mb-2">
+              <input type="text" class="form-control" id="documents-user-id" placeholder="Kullanıcı ID'si">
+              <button class="btn btn-outline-primary" type="button" onclick="getDocumentsByUser()">Getir</button>
+            </div>
+          </div>
           <div class="table-responsive">
             <table class="table table-striped align-middle" id="documents-table" style="display:none;"></table>
           </div>
@@ -152,6 +166,13 @@
         <div class="api-section">
           <div class="api-title">Tüm E-postaları Getir</div>
           <button class="btn btn-primary mb-2" onclick="getEmails()">GET /api/emails</button>
+          <div class="api-section">
+            <div class="api-title">Kullanıcıya Göre E-postaları Getir</div>
+            <div class="input-group mb-2">
+              <input type="text" class="form-control" id="emails-user-id" placeholder="Kullanıcı ID'si">
+              <button class="btn btn-outline-primary" type="button" onclick="getEmailsByUser()">Getir</button>
+            </div>
+          </div>
           <div class="table-responsive">
             <table class="table table-striped align-middle" id="emails-table" style="display:none;"></table>
           </div>

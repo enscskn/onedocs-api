@@ -54,6 +54,18 @@ async function getTasks() {
     showAlert('tasks-alert', 'danger', 'Tasklar yüklenemedi.');
   }
 }
+async function getTasksByUser() {
+  const userId = document.getElementById('tasks-user-id').value.trim();
+  if (!userId) return showAlert('tasks-alert', 'warning', 'Kullanıcı ID giriniz.');
+  try {
+    const res = await fetch(`${API_BASE}/tasks/assigned/${userId}`);
+    const data = await res.json();
+    renderTable('tasks-table', data);
+    showAlert('tasks-alert', 'success', `Kullanıcı (${userId}) için tasklar yüklendi.`);
+  } catch (e) {
+    showAlert('tasks-alert', 'danger', 'Tasklar yüklenemedi.');
+  }
+}
 document.getElementById('task-create-form').onsubmit = async (e) => {
   e.preventDefault();
   const form = e.target;
@@ -104,6 +116,18 @@ async function getDocuments() {
     showAlert('documents-alert', 'danger', 'Dökümanlar yüklenemedi.');
   }
 }
+async function getDocumentsByUser() {
+  const userId = document.getElementById('documents-user-id').value.trim();
+  if (!userId) return showAlert('documents-alert', 'warning', 'Kullanıcı ID giriniz.');
+  try {
+    const res = await fetch(`${API_BASE}/documents/assigned/${userId}`);
+    const data = await res.json();
+    renderTable('documents-table', data);
+    showAlert('documents-alert', 'success', `Kullanıcı (${userId}) için dökümanlar yüklendi.`);
+  } catch (e) {
+    showAlert('documents-alert', 'danger', 'Dökümanlar yüklenemedi.');
+  }
+}
 document.getElementById('document-create-form').onsubmit = async (e) => {
   e.preventDefault();
   const form = e.target;
@@ -150,6 +174,18 @@ async function getEmails() {
     const data = await res.json();
     renderTable('emails-table', data);
     showAlert('emails-alert', 'success', 'E-posta listesi başarıyla yüklendi.');
+  } catch (e) {
+    showAlert('emails-alert', 'danger', 'E-postalar yüklenemedi.');
+  }
+}
+async function getEmailsByUser() {
+  const userId = document.getElementById('emails-user-id').value.trim();
+  if (!userId) return showAlert('emails-alert', 'warning', 'Kullanıcı ID giriniz.');
+  try {
+    const res = await fetch(`${API_BASE}/emails/assigned/${userId}`);
+    const data = await res.json();
+    renderTable('emails-table', data);
+    showAlert('emails-alert', 'success', `Kullanıcı (${userId}) için e-postalar yüklendi.`);
   } catch (e) {
     showAlert('emails-alert', 'danger', 'E-postalar yüklenemedi.');
   }
