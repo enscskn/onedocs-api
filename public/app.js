@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = 'https://onedocs-api.vercel.app/api';
 
 // Helper: JSON pretty print
 function pretty(obj) {
